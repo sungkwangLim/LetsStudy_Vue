@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Study</title>
+
+    <!-- font -->    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- css -->
+	<link href="../assets/css/common.css" rel="stylesheet" type="text/css">    
+	<link href="../assets/css/main.css" rel="stylesheet" type="text/css">    
+    
+    <!-- js -->
+    <!-- 개발버전, 도움되는 콘솔 경고를 포함. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <section id="wrap">
+        <h1>{{ msg }}</h1>
+        <p><span>{{ webedit1.txt }}</span> {{ webedit1.link }} </p>
+        <p><span>{{ webedit2.txt }}</span> {{ webedit2.link }} </p>
+    </section>
+<script>
+    new Vue({
+        el:'#wrap',
+        data: {
+            msg : 'Hello World!',
+            webedit1 : {
+                txt: '코드팬',
+                link : 'https://codepen.io/'
+            },
+            webedit2 : {
+                txt: 'JS피들',
+                link : 'https://jsfiddle.net/'
+            },
+        }
+    })
+</script>
+</body>
+</html>
