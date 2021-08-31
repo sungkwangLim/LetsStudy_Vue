@@ -19,15 +19,28 @@
 </head>
 <body>
     <section id="wrap">
-        <h1>{{ msg }}</h1>
-        <p><span>{{ webedit1.txt }}</span> {{ webedit1.link }} </p>
-        <p><span>{{ webedit2.txt }}</span> {{ webedit2.link }} </p>
+        <section>
+            <h1>{{ msg }}</h1>
+            <p><span>{{ webedit1.txt }}</span> {{ webedit1.link }} </p>
+            <p><span>{{ webedit2.txt }}</span> {{ webedit2.link }} </p>
+            <p><span>{{ webedit3.txt }}</span> {{ webedit3.link }} </p>
+            <br>
+            <span v-bind:title="msg2">내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!</span>
+
+            <div class="text" v-bind:class="{ 'active': active }">
+                {{ msg }}
+            </div>
+        </section>
+        <hr>
+
     </section>
 <script>
     new Vue({
         el:'#wrap',
         data: {
             msg : 'Hello World!',
+            msg2 : `이페이지는 ${new Date()}에 로드 되었습니다.`,
+            active : true,
             webedit1 : {
                 txt: '코드팬',
                 link : 'https://codepen.io/'
@@ -35,6 +48,10 @@
             webedit2 : {
                 txt: 'JS피들',
                 link : 'https://jsfiddle.net/'
+            },
+            webedit3 : {
+                txt: 'JS빈',
+                link : 'https://jsbin.com/'
             },
         }
     })
