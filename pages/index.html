@@ -21,38 +21,46 @@
     <section id="wrap">
         <section>
             <h1>{{ msg }}</h1>
-            <p><span>{{ webedit1.txt }}</span> {{ webedit1.link }} </p>
-            <p><span>{{ webedit2.txt }}</span> {{ webedit2.link }} </p>
-            <p><span>{{ webedit3.txt }}</span> {{ webedit3.link }} </p>
+            <ul>   
+                <!-- vfor 디렉티브 사용할때 key는 필수로 이후에 에러나 중복문제가 발생할수있음 -->
+                <li v-for="i in webeit" 
+                    v-bind:key="i.txt"> 
+                    <p><span>{{ i.txt }}</span> {{ i.link }} </p>
+                </li>
+            </ul>
             <br>
             <span v-bind:title="msg2">내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!</span>
-
+            <br>
             <div class="text" v-bind:class="{ 'active': active }">
                 {{ msg }}
             </div>
+            <br>
+            <div v-if="show">
+                보여요!
+            </div>
+            <br>
+            <div v-if="msg">
+                {{ msg }} ~~
+            </div>
+            <br>
+
         </section>
         <hr>
 
     </section>
 <script>
-    new Vue({
+    const vm = new Vue({
         el:'#wrap',
         data: {
             msg : 'Hello World!',
             msg2 : `이페이지는 ${new Date()}에 로드 되었습니다.`,
             active : true,
-            webedit1 : {
-                txt: '코드팬',
-                link : 'https://codepen.io/'
-            },
-            webedit2 : {
-                txt: 'JS피들',
-                link : 'https://jsfiddle.net/'
-            },
-            webedit3 : {
-                txt: 'JS빈',
-                link : 'https://jsbin.com/'
-            },
+            show: false,
+            webeit: [
+                {txt: '코드팬', link : 'https://codepen.io/'},
+                {txt: 'JS피들', link : 'https://jsfiddle.net/'},
+                {txt: 'JS빈', link : 'https://jsbin.com/'}
+            ]
         }
     })
 </script>
