@@ -31,7 +31,7 @@
             <br>
             <span v-bind:title="msg2">내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!</span>
             <br>
-            <div class="text" v-bind:class="{ 'active': active }">
+            <div class="text" v-bind:class="{ 'active': toggle }">
                 {{ msg }}
             </div>
             <br>
@@ -44,6 +44,20 @@
             </div>
             <br>
 
+            <div>
+                <!-- vmodel 디렉티브 -->
+                <input type="text" v-model="msg">
+            </div>
+            <br>
+            <div>
+                <div class="box" 
+                    v-bind:class="{active : toggle}"
+                    v-on:click="toggleElement">
+                    {{ message1 }}
+                </div>
+                <button type="button" v-on:click="toggleElement">Toggle</button>
+                <input type="text" v-model="message1">
+            </div>
         </section>
         <hr>
 
@@ -60,7 +74,14 @@
                 {txt: '코드팬', link : 'https://codepen.io/'},
                 {txt: 'JS피들', link : 'https://jsfiddle.net/'},
                 {txt: 'JS빈', link : 'https://jsbin.com/'}
-            ]
+            ],
+            toggle : false,
+            message1 : '',
+        },
+        methods:{
+            toggleElement(){
+                this.toggle = !this.toggle;
+            }
         }
     })
 </script>

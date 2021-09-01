@@ -25,3 +25,7 @@ button {display: inline-block; border: 1px solid #ccc; color: #000; background: 
 
 .text {font-size: 70px;}
 .text.active {color: red;}
+
+.box {width: 150px; height: 150px; margin: 0 auto; @include alertBox(royalblue, #fff); transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s; cursor: pointer;
+    &.active {width: 400px; background: tomato;}
+}
